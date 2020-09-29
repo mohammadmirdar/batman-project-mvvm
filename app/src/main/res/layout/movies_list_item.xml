@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="130dp"
-    android:layout_height="190dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="3dp"
-    android:elevation="5dp"
-    android:id="@+id/cardViewContainer">
+    android:layout_width="130dp"
+    android:layout_height="215dp"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewContainer"
+        android:layout_width="130dp"
+        android:layout_height="170dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="10dp">
 
         <ImageView
             android:id="@+id/imgMovieCover"
             android:layout_width="match_parent"
-            android:layout_height="150dp" />
-        <TextView
-            android:id="@+id/txtMovieTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#D6D6D6"
-            android:text="Batman for movie"
-            android:maxLines="2"
-            android:textAlignment="center"
-            android:padding="2dp"/>
+            android:layout_height="match_parent" />
 
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-</androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/txtMovieTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="#D6D6D6"
+        android:text="Batman for movie"
+        android:maxLines="2"
+        android:gravity="center|left"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>

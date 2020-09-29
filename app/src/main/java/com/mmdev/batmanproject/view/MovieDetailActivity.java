@@ -1,5 +1,6 @@
 package com.mmdev.batmanproject.view;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,6 +67,7 @@ public class MovieDetailActivity extends DaggerAppCompatActivity {
 
         imgDetailCover.setEdgeLength(90);
 
+        ;
         Bundle bundle = getIntent().getExtras();
         String imdbId = null;
         if (bundle != null) {
