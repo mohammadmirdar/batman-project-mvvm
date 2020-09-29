@@ -5,14 +5,14 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 @SuppressWarnings("all")
-public class Batman {
+public class Movie {
     @SerializedName("Search")
     private List<Search> search;
 
-    public Batman() {
+    public Movie() {
     }
 
-    public Batman(List<Search> search) {
+    public Movie(List<Search> search) {
         this.search = search;
     }
 

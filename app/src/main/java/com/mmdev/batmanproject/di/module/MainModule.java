@@ -3,7 +3,6 @@ package com.mmdev.batmanproject.di.module;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mmdev.batmanproject.adapter.MovieListAdapter;
-import com.mmdev.batmanproject.persistence.BatmanDao;
 import com.mmdev.batmanproject.repository.MainRepository;
 
 import javax.inject.Singleton;

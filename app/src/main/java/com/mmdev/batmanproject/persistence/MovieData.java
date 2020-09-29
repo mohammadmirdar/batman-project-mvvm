@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "batman_list_table")
-public class BatmanData {
+public class MovieData {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -20,10 +20,10 @@ public class BatmanData {
     @ColumnInfo(name = "poster_url")
     private String poster_url;
 
-    public BatmanData() {
+    public MovieData() {
     }
 
-    public BatmanData(int id, String title, String year, String imdbId, String type, String poster_url) {
+    public MovieData(int id, String title, String year, String imdbId, String type, String poster_url) {
         this.id = id;
         this.title = title;
         this.year = year;

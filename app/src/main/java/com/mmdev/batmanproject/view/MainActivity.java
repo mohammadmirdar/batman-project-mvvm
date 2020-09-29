@@ -10,8 +10,8 @@ import android.util.Log;
 
 import com.mmdev.batmanproject.R;
 import com.mmdev.batmanproject.adapter.MovieListAdapter;
-import com.mmdev.batmanproject.model.Batman;
-import com.mmdev.batmanproject.persistence.BatmanData;
+import com.mmdev.batmanproject.model.Movie;
+import com.mmdev.batmanproject.persistence.MovieData;
 import com.mmdev.batmanproject.util.Resource;
 import com.mmdev.batmanproject.viewmodel.MainViewModel;
 import com.mmdev.batmanproject.viewmodel.ViewModelFactory;
@@ -51,18 +51,18 @@ public class MainActivity extends DaggerAppCompatActivity {
     }
     private void subscribeObservers(){
 
-        mainViewModel.getResourceLiveData().observe(this, new Observer<Resource<Batman>>() {
+        mainViewModel.getResourceLiveData().observe(this, new Observer<Resource<Movie>>() {
             @Override
-            public void onChanged(Resource<Batman> batmanResource) {
+            public void onChanged(Resource<Movie> batmanResource) {
                 Log.e(TAG, "onChanged: " + batmanResource.data );
             }
         });
 
-        mainViewModel.getBatmanLiveData().observe(this, new Observer<List<BatmanData>>() {
+        mainViewModel.getBatmanLiveData().observe(this, new Observer<List<MovieData>>() {
             @Override
-            public void onChanged(List<BatmanData> batmanData) {
-                if (batmanData != null) {
-                    adapter.setBatmanData(batmanData);
+            public void onChanged(List<MovieData> movieData) {
+                if (movieData != null) {
+                    adapter.setMovieData(movieData);
                 }
             }
         });

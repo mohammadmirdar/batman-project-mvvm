@@ -1,11 +1,10 @@
 package com.mmdev.batmanproject.viewmodel;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.mmdev.batmanproject.model.Batman;
-import com.mmdev.batmanproject.persistence.BatmanData;
+import com.mmdev.batmanproject.model.Movie;
+import com.mmdev.batmanproject.persistence.MovieData;
 import com.mmdev.batmanproject.repository.MainRepository;
 import com.mmdev.batmanproject.util.Resource;
 
@@ -18,8 +17,8 @@ import javax.inject.Singleton;
 public class MainViewModel extends ViewModel {
 
     private MainRepository mainRepository;
-    private LiveData<List<BatmanData>> batmanDataLiveData;
-    private LiveData<Resource<Batman>> resourceLiveData;
+    private LiveData<List<MovieData>> batmanDataLiveData;
+    private LiveData<Resource<Movie>> resourceLiveData;
 
     @Inject
     public MainViewModel(MainRepository mainRepository) {
@@ -29,11 +28,11 @@ public class MainViewModel extends ViewModel {
         resourceLiveData = mainRepository.getAllBatmanMovies();
     }
 
-    public LiveData<List<BatmanData>> getBatmanLiveData() {
+    public LiveData<List<MovieData>> getBatmanLiveData() {
         return batmanDataLiveData;
     }
 
-    public LiveData<Resource<Batman>> getResourceLiveData() {
+    public LiveData<Resource<Movie>> getResourceLiveData() {
         return resourceLiveData;
     }
 }

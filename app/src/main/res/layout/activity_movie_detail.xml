@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context=".view.MovieDetailActivity">
+
+        <com.mmdev.batmanproject.view.FadableImageView
+            android:id="@+id/imgDetailCover"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPoster"
+            android:layout_width="110dp"
+            android:layout_height="165dp"
+            android:layout_marginStart="25dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/imgDetailCover"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgDetailCover">
+
+            <ImageView
+                android:id="@+id/imgDetailPoster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text="FA Mulan"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/cardPoster"
+            app:layout_constraintTop_toBottomOf="@id/imgDetailCover" />
+
+        <TextView
+            android:id="@+id/txtDetailRelease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="19 Sep 2020"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/txtDetailTitle"
+            app:layout_constraintTop_toBottomOf="@id/txtDetailTitle" />
+
+        <TextView
+            android:id="@+id/txtDetailDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="- 150 Min"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/txtDetailRelease"
+            app:layout_constraintTop_toBottomOf="@id/txtDetailTitle" />
+
+        <ImageView
+            android:id="@+id/imgImdbLogo"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            app:layout_constraintStart_toStartOf="@id/cardPoster"
+            app:layout_constraintTop_toBottomOf="@id/cardPoster"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/imdb_logo"/>
+        <TextView
+            android:id="@+id/txtVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/imgImdbLogo"
+            app:layout_constraintTop_toTopOf="@id/imgImdbLogo"
+            android:layout_marginStart="10dp"
+            android:text="9.0/10.0"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtVoteCountTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vote Count: "
+            app:layout_constraintStart_toStartOf="@id/txtDetailTitle"
+            app:layout_constraintTop_toTopOf="@id/txtVote"
+            android:textColor="@color/secondaryTextColor"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="58,000"
+            app:layout_constraintStart_toEndOf="@id/txtVoteCountTitle"
+            app:layout_constraintTop_toTopOf="@id/txtVoteCountTitle"
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="#303233"
+            app:layout_constraintTop_toBottomOf="@id/txtVoteCountTitle"/>
+
+        <TextView
+            android:id="@+id/txtAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            android:textStyle="bold"
+            android:textColor="@color/orangePrimary"
+            android:textSize="22sp"
+            android:text="About"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="3dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/txtPlot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtAbout"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:text="lorem ispom lorem lorem lorem lorem lorem mloemlijdfdlida lorem lorem inspom osk"
+            android:padding="25dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
