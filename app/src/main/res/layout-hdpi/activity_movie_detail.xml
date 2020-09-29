@@ -16,14 +16,14 @@
         <com.mmdev.batmanproject.view.FadableImageView
             android:id="@+id/imgDetailCover"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="210dp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardPoster"
-            android:layout_width="110dp"
-            android:layout_height="165dp"
-            android:layout_marginStart="25dp"
+            android:layout_width="90dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="15dp"
             app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="@id/imgDetailCover"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,8 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="0dp"
+            android:text=""
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@id/cardPoster"
             app:layout_constraintTop_toBottomOf="@id/imgDetailCover" />
@@ -52,8 +53,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:text=""
             android:textColor="@color/secondaryTextColor"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/txtDetailTitle"
             app:layout_constraintTop_toBottomOf="@id/txtDetailTitle" />
@@ -64,16 +66,17 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:text=""
             android:textColor="@color/secondaryTextColor"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/txtDetailRelease"
             app:layout_constraintTop_toBottomOf="@id/txtDetailTitle" />
 
         <ImageView
             android:id="@+id/imgImdbLogo"
-            android:layout_width="50dp"
-            android:layout_height="20dp"
+            android:layout_width="35dp"
+            android:layout_height="15dp"
             app:layout_constraintStart_toStartOf="@id/cardPoster"
             app:layout_constraintTop_toBottomOf="@id/cardPoster"
             android:layout_marginTop="30dp"
@@ -85,6 +88,8 @@
             app:layout_constraintStart_toEndOf="@id/imgImdbLogo"
             app:layout_constraintTop_toTopOf="@id/imgImdbLogo"
             android:layout_marginStart="10dp"
+            android:text=""
+            android:textSize="12sp"
             android:textColor="@android:color/white"
             android:textStyle="bold"/>
 
@@ -96,16 +101,19 @@
             app:layout_constraintStart_toStartOf="@id/txtDetailTitle"
             app:layout_constraintTop_toTopOf="@id/txtVote"
             android:textColor="@color/secondaryTextColor"
+            android:textSize="12sp"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txtVoteCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text=""
             app:layout_constraintStart_toEndOf="@id/txtVoteCountTitle"
             app:layout_constraintTop_toTopOf="@id/txtVoteCountTitle"
             android:layout_marginStart="10dp"
             android:textColor="@android:color/white"
+            android:textSize="12sp"
             android:textStyle="bold"/>
 
         <ImageView
@@ -124,7 +132,7 @@
             app:layout_constraintTop_toBottomOf="@id/divider1"
             android:textStyle="bold"
             android:textColor="@color/orangePrimary"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:text="About"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -137,22 +145,22 @@
             app:layout_constraintTop_toBottomOf="@id/txtAbout"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:padding="25dp"/>
+            android:textSize="14sp"
+            android:padding="15dp"/>
 
         <ImageView
             android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/dividerColor"
             app:layout_constraintTop_toBottomOf="@id/txtPlot"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="25dp"
-            android:paddingEnd="25dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             app:layout_constraintTop_toBottomOf="@id/divider2"
             android:orientation="vertical"
             android:layout_marginTop="15dp">
@@ -161,21 +169,23 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Genre"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtGenre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
+                    android:text=""
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -183,21 +193,23 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Writer"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtWriter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
+                    android:text=""
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -205,13 +217,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Director"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtDirector"
@@ -219,7 +232,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -227,13 +240,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Actors"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtActors"
@@ -241,7 +255,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -249,13 +263,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Language"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtLanguage"
@@ -263,7 +278,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -271,13 +286,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Country"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtCountry"
@@ -285,7 +301,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -293,13 +309,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Awards"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtAwards"
@@ -307,7 +324,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -315,13 +332,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Released"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtReleased"
@@ -329,7 +347,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
@@ -337,13 +355,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginBottom="10dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Runtime"
                     android:textColor="@color/secondaryTextColor"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtRuntime"
@@ -351,10 +370,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
+
         <ProgressBar
             android:id="@+id/detailProgress"
             android:layout_width="wrap_content"

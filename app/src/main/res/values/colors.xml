@@ -6,4 +6,5 @@
     <color name="titleTextColor">#FFFFFF</color>
     <color name="secondaryTextColor">#5F7F91</color>
     <color name="orangePrimary">#F44336</color>
+    <color name="dividerColor">#721A2A32</color>
 </resources>
