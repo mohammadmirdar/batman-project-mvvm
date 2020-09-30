@@ -1,17 +1,13 @@
 package com.mmdev.batmanproject.view;
 
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ProgressBar;
-
-import com.google.android.material.snackbar.Snackbar;
 import com.mmdev.batmanproject.R;
 import com.mmdev.batmanproject.adapter.MovieListAdapter;
 import com.mmdev.batmanproject.model.Movie;
@@ -20,11 +16,8 @@ import com.mmdev.batmanproject.util.GridSpacingItemDecoration;
 import com.mmdev.batmanproject.util.Resource;
 import com.mmdev.batmanproject.viewmodel.MainViewModel;
 import com.mmdev.batmanproject.viewmodel.ViewModelFactory;
-
 import java.util.List;
-
 import javax.inject.Inject;
-
 import dagger.android.support.DaggerAppCompatActivity;
 
 public class MainActivity extends DaggerAppCompatActivity {
@@ -39,42 +32,45 @@ public class MainActivity extends DaggerAppCompatActivity {
 
     private RecyclerView movieRecycler;
     private ProgressBar mainProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         movieRecycler = findViewById(R.id.moviesRecycler);
         mainProgress = findViewById(R.id.mainProgress);
-        mainViewModel = ViewModelProviders.of(this,factory).get(MainViewModel.class);
+
+        mainViewModel = ViewModelProviders.of(this, factory).get(MainViewModel.class);
 
         Drawable drawable = getResources().getDrawable(R.drawable.batman_eyes);
-        getSupportActionBar().setBackgroundDrawable(drawable);
-        getSupportActionBar().setTitle("");
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setBackgroundDrawable(drawable);
+            getSupportActionBar().setTitle("");
+        }
 
         initRecycler();
         subscribeObservers();
     }
 
-    private void initRecycler(){
-        movieRecycler.setLayoutManager(new GridLayoutManager(this,3,RecyclerView.VERTICAL,false));
+    private void initRecycler() {
+        movieRecycler.setLayoutManager(new GridLayoutManager(this, 3, RecyclerView.VERTICAL, false));
         movieRecycler.setHasFixedSize(true);
-        movieRecycler.addItemDecoration(new GridSpacingItemDecoration(3,getResources().getDimensionPixelSize(R.dimen.recycler_view_item_width)));
+        movieRecycler.addItemDecoration(new GridSpacingItemDecoration(3, getResources().getDimensionPixelSize(R.dimen.recycler_view_item_width)));
         movieRecycler.setAdapter(adapter);
     }
-    private void subscribeObservers(){
+
+    private void subscribeObservers() {
 
         mainViewModel.getResourceLiveData().observe(this, new Observer<Resource<Movie>>() {
             @Override
             public void onChanged(Resource<Movie> batmanResource) {
                 if (batmanResource != null) {
-                    switch (batmanResource.status){
+                    switch (batmanResource.status) {
                         case SUCCESS:
-                            showProgressBar(false);
-                            movieRecycler.setVisibility(View.VISIBLE);
-                            break;
                         case ERROR:
                             showProgressBar(false);
-                            movieRecycler.setVisibility(View.VISIBLE);
+                            showRecyclerView(true);
                             break;
                         case LOADING:
                             showProgressBar(true);
@@ -95,11 +91,19 @@ public class MainActivity extends DaggerAppCompatActivity {
 
     }
 
-    private void showProgressBar(boolean isShowing){
-        if (isShowing){
+    private void showProgressBar(boolean isShowing) {
+        if (isShowing) {
             mainProgress.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             mainProgress.setVisibility(View.GONE);
+        }
+    }
+
+    private void showRecyclerView(boolean isShowing) {
+        if (isShowing) {
+            movieRecycler.setVisibility(View.VISIBLE);
+        } else {
+            movieRecycler.setVisibility(View.GONE);
         }
     }
 }

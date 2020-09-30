@@ -10,7 +10,6 @@ import androidx.lifecycle.MediatorLiveData;
 import com.mmdev.batmanproject.model.Movie;
 import com.mmdev.batmanproject.persistence.MovieDao;
 import com.mmdev.batmanproject.persistence.MovieData;
-import com.mmdev.batmanproject.persistence.MovieDatabase;
 import com.mmdev.batmanproject.remote.MovieApi;
 import com.mmdev.batmanproject.util.Constants;
 import com.mmdev.batmanproject.util.Resource;
@@ -25,6 +24,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * this class uses for provide and manage fetch data from Web or Database.
+ *
+ * @author Mohammad Mirdar
+ * @version 1.0
+ * @since 2020-09-28
+ */
 public class MainRepository {
     private static final String TAG = "MainRepository";
     @Inject

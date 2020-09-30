@@ -1,10 +1,15 @@
 package com.mmdev.batmanproject.util;
-
 import android.graphics.Rect;
 import android.view.View;
-
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * this class used for managing spaces between Grid RecyclerViews.
+ *
+ * @author Mohammad Mirdar
+ * @version 1.0
+ * @since 2020-09-29
+ */
 public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
     private int mSpanCount;

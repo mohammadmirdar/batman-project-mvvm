@@ -8,7 +8,6 @@ import androidx.lifecycle.LiveDataReactiveStreams;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.Observer;
 
-import com.mmdev.batmanproject.model.Movie;
 import com.mmdev.batmanproject.model.MovieDetail;
 import com.mmdev.batmanproject.persistence.MovieDao;
 import com.mmdev.batmanproject.persistence.MovieDetailData;
@@ -24,6 +23,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * this class uses for provide and manage fetch of data from Web or Database.
+ *
+ * @author Mohammad Mirdar
+ * @version 1.0
+ * @since 2020-09-28
+ */
 public class DetailRepository {
 
     private static final String TAG = "DetailRepository";
@@ -40,19 +46,24 @@ public class DetailRepository {
 
     }
 
-    public LiveData<MovieDetailData> getDatabaseMovieDetail(String movieId){
-       return movieDao.getMovieById(movieId);
+    public LiveData<MovieDetailData> getDatabaseMovieDetail(String movieId) {
+        return movieDao.getMovieById(movieId);
     }
 
-    public LiveData<Resource<MovieDetail>> getRemoteMovieDetail(String movieId){
+    /**
+     * Gets data from Webservice and convert it to a MutableLiveData that
+     * its Generic class is Resource<MovieDetail> that used for managing response status.
+     * @param movieId is String parameter to pass it to Webservice.
+     */
+    public LiveData<Resource<MovieDetail>> getRemoteMovieDetail(String movieId) {
         mediatorLiveData.setValue(Resource.loading(null));
 
         final LiveData<Resource<MovieDetail>> source = LiveDataReactiveStreams.fromPublisher(
-                movieApi.getMovieDetail(Constants.API_KEY,movieId)
+                movieApi.getMovieDetail(Constants.API_KEY, movieId)
                         .onErrorReturn(new Function<Throwable, MovieDetail>() {
                             @Override
                             public MovieDetail apply(Throwable throwable) throws Exception {
-                                Log.e(TAG, "apply: " + throwable.getMessage() );
+                                Log.e(TAG, "apply: " + throwable.getMessage());
                                 MovieDetail movieDetail = new MovieDetail();
                                 movieDetail.setImdbId(".");
                                 return movieDetail;
@@ -61,14 +72,14 @@ public class DetailRepository {
                         .map(new Function<MovieDetail, Resource<MovieDetail>>() {
                             @Override
                             public Resource apply(MovieDetail movieDetail) throws Exception {
-                                if (movieDetail.getImdbId().equals(".")){
-                                    return Resource.error("Something went wrong",null);
+                                if (movieDetail.getImdbId().equals(".")) {
+                                    return Resource.error("Something went wrong", null);
                                 }
                                 insertMovieDetailToDatabase(fillMovieDetailData(movieDetail));
                                 return Resource.success(movieDetail);
                             }
                         })
-                .subscribeOn(Schedulers.io()));
+                        .subscribeOn(Schedulers.io()));
 
         mediatorLiveData.addSource(source, new Observer<Resource<MovieDetail>>() {
             @Override
@@ -80,7 +91,7 @@ public class DetailRepository {
         return mediatorLiveData;
     }
 
-    private void insertMovieDetailToDatabase(MovieDetailData movieDetail){
+    private void insertMovieDetailToDatabase(MovieDetailData movieDetail) {
         movieDao.insertMovieDetail(movieDetail)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -92,7 +103,7 @@ public class DetailRepository {
 
                     @Override
                     public void onSuccess(Long aLong) {
-                        Log.e(TAG, "onSuccess: " + aLong );
+                        Log.e(TAG, "onSuccess: " + aLong);
                     }
 
                     @Override
@@ -102,7 +113,7 @@ public class DetailRepository {
                 });
     }
 
-    private MovieDetailData fillMovieDetailData(MovieDetail m){
+    private MovieDetailData fillMovieDetailData(MovieDetail m) {
         MovieDetailData movieDetailData = new MovieDetailData();
 
         movieDetailData.setActors(m.getActors());

@@ -2,16 +2,14 @@ package com.mmdev.batmanproject.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
-
 import com.mmdev.batmanproject.model.Movie;
 import com.mmdev.batmanproject.persistence.MovieData;
 import com.mmdev.batmanproject.repository.MainRepository;
 import com.mmdev.batmanproject.util.Resource;
-
 import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
 
 @Singleton
 public class MainViewModel extends ViewModel {

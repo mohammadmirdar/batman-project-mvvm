@@ -9,6 +9,14 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
+/**
+ * this class used for multiple ViewModel classes
+ *
+ * @author Mohammad Mirdar
+ * @version 1.0
+ * @since 2020-09-28
+ */
+
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
     private Map<Class<? extends ViewModel> , Provider<ViewModel>> creators;

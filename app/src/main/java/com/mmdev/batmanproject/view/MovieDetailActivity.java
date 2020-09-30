@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.bumptech.glide.RequestManager;
 import com.mmdev.batmanproject.R;
 import com.mmdev.batmanproject.model.MovieDetail;
@@ -18,7 +16,6 @@ import com.mmdev.batmanproject.persistence.MovieDetailData;
 import com.mmdev.batmanproject.util.Resource;
 import com.mmdev.batmanproject.viewmodel.DetailViewModel;
 import com.mmdev.batmanproject.viewmodel.ViewModelFactory;
-
 import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
@@ -67,9 +64,9 @@ public class MovieDetailActivity extends DaggerAppCompatActivity {
 
         imgDetailCover.setEdgeLength(90);
 
-        ;
         Bundle bundle = getIntent().getExtras();
         String imdbId = null;
+
         if (bundle != null) {
             imdbId = bundle.getString("imdbId");
         }
@@ -85,23 +82,9 @@ public class MovieDetailActivity extends DaggerAppCompatActivity {
             @Override
             public void onChanged(MovieDetailData movieDetailData) {
                 if (movieDetailData != null) {
-                    requestManager.load(movieDetailData.getPoster()).into(imgDetailCover);
-                    requestManager.load(movieDetailData.getPoster()).into(imgDetailPoster);
-                    txtDetailTitle.setText(movieDetailData.getTitle());
-                    txtDetailRelease.setText(movieDetailData.getReleased());
-                    txtDetailDuration.setText("- " + movieDetailData.getRuntime());
-                    txtVote.setText(movieDetailData.getImdbRating());
-                    txtVoteCount.setText(movieDetailData.getImdbVotes());
-                    txtPlot.setText(movieDetailData.getPlot());
-                    txtGenre.setText(movieDetailData.getGenre());
-                    txtWriter.setText(movieDetailData.getWriter());
-                    txtDirector.setText(movieDetailData.getDirector());
-                    txtActors.setText(movieDetailData.getActors());
-                    txtLanguage.setText(movieDetailData.getLanguage());
-                    txtCountry.setText(movieDetailData.getCountry());
-                    txtAwards.setText(movieDetailData.getAwards());
-                    txtReleased.setText(movieDetailData.getReleased());
-                    txtRuntime.setText(movieDetailData.getRuntime());
+
+                    updateUI(movieDetailData);
+
                 }
             }
         });
@@ -134,5 +117,26 @@ public class MovieDetailActivity extends DaggerAppCompatActivity {
         }else {
             progressBar.setVisibility(View.GONE);
         }
+    }
+
+    private void updateUI(MovieDetailData movieDetailData){
+
+        requestManager.load(movieDetailData.getPoster()).into(imgDetailCover);
+        requestManager.load(movieDetailData.getPoster()).into(imgDetailPoster);
+        txtDetailTitle.setText(movieDetailData.getTitle());
+        txtDetailRelease.setText(movieDetailData.getReleased());
+        txtDetailDuration.setText("- " + movieDetailData.getRuntime());
+        txtVote.setText(movieDetailData.getImdbRating());
+        txtVoteCount.setText(movieDetailData.getImdbVotes());
+        txtPlot.setText(movieDetailData.getPlot());
+        txtGenre.setText(movieDetailData.getGenre());
+        txtWriter.setText(movieDetailData.getWriter());
+        txtDirector.setText(movieDetailData.getDirector());
+        txtActors.setText(movieDetailData.getActors());
+        txtLanguage.setText(movieDetailData.getLanguage());
+        txtCountry.setText(movieDetailData.getCountry());
+        txtAwards.setText(movieDetailData.getAwards());
+        txtReleased.setText(movieDetailData.getReleased());
+        txtRuntime.setText(movieDetailData.getRuntime());
     }
 }

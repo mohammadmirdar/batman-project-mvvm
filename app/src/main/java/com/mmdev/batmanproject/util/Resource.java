@@ -2,7 +2,13 @@ package com.mmdev.batmanproject.util;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
+/**
+ * this class used for managing stats of responses that comes from Web.
+ *
+ * @author Mohammad Mirdar
+ * @version 1.0
+ * @since 2020-09-28
+ */
 public class Resource<T> {
 
     @NonNull

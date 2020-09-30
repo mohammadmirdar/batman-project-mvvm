@@ -8,6 +8,13 @@ import android.util.TypedValue;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+/**
+ * this class provides an ImageView that can fade in bottom or top edge.
+ *
+ * @author Mohammad Mirdar
+ * @version 1.0
+ * @since 2020-09-29
+ */
 public class FadableImageView extends androidx.appcompat.widget.AppCompatImageView {
 
     private FadeSide fadeSide;
